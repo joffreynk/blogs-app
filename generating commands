@@ -1,0 +1,107 @@
+create user table
+rails generate model user name:string photo:string bio:text post_counter:integer
+
+create like model
+rails generate model like post:references user:references
+
+create post model
+rails generate model post title:string text:text comments_counter:integer likes_counter:integer user:references
+
+
+create comment model
+rails generate model comment  text:text post:references user:references
+
+
+
+class Comment < ApplicationRecord
+    has_many :users
+    has_many :posts
+end
+
+
+class Like < ApplicationRecord
+    has_many :users
+    has_many :posts
+end
+
+
+class Post < ApplicationRecord
+    has_many :users
+end
+
+
+class CreateUsers < ActiveRecord::Migration[7.0]
+    def change
+      create_table :users do |t|
+        t.string :name
+        t.string :photo
+        t.text :bio
+        t.integer :post_counter
+  
+        t.timestamps
+      end
+    end
+  end
+
+
+
+  class CreateLikes < ActiveRecord::Migration[7.0]
+    def change
+      create_table :likes do |t|
+        t.integer :author_id
+        t.integer :post_id
+        t.index ["author_id"], name: "index_likes_on_author_id"
+        t.index ["post_id"], name: "index_likes_on_post_id"
+        t.timestamps
+      end
+      add_foreign_key "likes", users, column: "author_id"
+      add_foreign_key "likes", posts, column: "post_id"
+    end
+  end
+
+
+
+  class CreatePosts < ActiveRecord::Migration[7.0]
+    def change
+      create_table :posts do |t|
+        t.integer :author_id
+        t.index ["author_id"], name: "index_post_on_author_id"
+        t.string :title
+        t.text :text
+        t.integer :comments_counter
+        t.integer :likes_counter
+  
+        t.timestamps
+      end
+      add_foreign_key "post", "users", column: "author_id"
+    end
+  end
+
+  
+
+
+  class CreateComments < ActiveRecord::Migration[7.0]
+    def change
+      create_table :comments do |t|
+        t.integer :author_id
+        t.integer :post_id
+        t.index ["author_id"], name: "index_comment_on_author_id"
+        t.index ["post_id"], name: "index_comment_on_post_id"
+        t.text :text
+  
+        t.timestamps
+      end
+      add_foreign_key "comment", "users", column: "author_id"
+      add_foreign_key "comment", "posts", column: "post_id"
+    end
+
+    def u
+  end
+  
+
+
+  add_reference :posts, :users, foreign_key: true, index: true
+
+
+
+  rails g migration CreateLikes post:references
