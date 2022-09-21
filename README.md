@@ -9,7 +9,19 @@
 ## Getting Started
 
 To use this application, you have to install ```Ruby```, then ```Ruby on rails``` clone this project using ```git clone https://github.com/JoffreyNK/blogs-app``` and install the depencancies using ```bundle install``` 
-and the you will need postgresql database 
+and the you will need postgresql database log in it and create `blogs` database manually
+and after you need to create fields using the following commands
+
+first run:  ```rails generate model user name:string photo:string bio:text post_counter:integer```
+
+second: ```rails generate model post title:string text:text comments_counter:integer likes_counter:integer user:references```
+
+third: ```rails generate model like post:references user:references```
+
+fourth: ```rails generate model comment  text:text post:references user:references```
+
+now run ```rails db:migrate```
+
 
 ## Authors
 
