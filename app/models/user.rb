@@ -1,6 +1,13 @@
 class User < ApplicationRecord
-    def self.most_recent3
-        User.last(limit = 3)
-    end
-    
+    has_many :posts, foreign_key: 'author_id'
+  has_many :likes, foreign_key: 'author_id'
+  has_many :comments, foreign_key: 'author_id'
+
+  after_initialize do |user|
+    user.posts_counter = 0
+  end
+
+  def last_three_posts
+    Post.where(author: self).order(updated_at: :desc).first(3)
+  end
 end

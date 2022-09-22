@@ -1,11 +1,22 @@
 class Post < ApplicationRecord
-  belongs_to :user
-  def self.updateusercount
-    user = User.find_by(id:  self.author_id)
-    user.update(post_counter: Post.where(id: self.author_id).count)
+  belongs_to :author, class_name: 'User', foreign_key: :author_id
+  has_many :likes
+  has_many :comments
+
+  after_save :update_posts_counter
+
+  after_initialize do |post|
+    post.likes_counter = 0
+    post.comments_counter = 0
   end
 
-  def list_last_comment
-    Comment.where(post_id: self.id).last(limit = 3)
+  def update_posts_counter
+    author.increment!(:posts_counter)
   end
+
+  def five_most_recent_comments
+    comments.order(updated_at: :desc).first(5)
+  end
+
+  private :update_posts_counter
 end
