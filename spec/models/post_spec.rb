@@ -44,7 +44,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'check if update_post_counter' do
-    user = User.create(name: 'Jack', post_counter:0)
+    user = User.create(name: 'Jack', post_counter:3)
     post1 = Post.create(title:'helllo', text:'writing testing in rails', author_id: user.id)
     post2 = Post.create(title:'how are you', text:'writing testing in rails', author_id: user.id)
     post3 = Post.create(title:'Fine and you?', text:'writing testing in rails', author_id: user.id)
