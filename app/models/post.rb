@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   has_many :comments
 
   validates :title, presence: true, length: { in: 1..250 }
-  validates_numericality_of :likes_counter, :greater_than_or_equal_to => 0
-  validates_numericality_of :comments_counter, :greater_than_or_equal_to => 0
+  validates_numericality_of :likes_counter, greater_than_or_equal_to: 0
+  validates_numericality_of :comments_counter, greater_than_or_equal_to: 0
 
   after_create :update_post_counter
 
@@ -21,5 +21,4 @@ class Post < ApplicationRecord
   def five_most_recent_comments
     comments.order(updated_at: :desc).limit(5)
   end
-
 end
