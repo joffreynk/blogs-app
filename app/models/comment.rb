@@ -8,5 +8,4 @@ class Comment < ApplicationRecord
     post.increment!(:comments_counter)
   end
 
-  private :update_comments_counter
 end

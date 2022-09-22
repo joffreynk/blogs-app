@@ -3,6 +3,10 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
 
+  validates :title, presence: true, length: { in: 1..250 }
+  validates_numericality_of :likes_counter, :greater_than_or_equal_to => 0
+  validates_numericality_of :comments_counter, :greater_than_or_equal_to => 0
+
   after_save :update_post_counter
 
   after_initialize do |post|
@@ -15,8 +19,7 @@ class Post < ApplicationRecord
   end
 
   def five_most_recent_comments
-    comments.order(updated_at: desc).first(5)
+    comments.order(updated_at: :desc).limit(5)
   end
 
-  private :update_post_counter
 end
