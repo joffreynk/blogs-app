@@ -5,6 +5,7 @@
 ## Built With
 
 - Ruby
+- Rails
 
 ## Getting Started
 
@@ -21,6 +22,19 @@ third: ```rails generate model like post:references user:references```
 fourth: ```rails generate model comment  text:text post:references user:references```
 
 now run ```rails db:migrate```
+
+## Testing
+
+The application was tested and all testing are running correctly. I have tested two parts:
+
+- The first part I tested all models of the application and their functionalities
+- The second part I tested controllers with the routers application controllers and some content on pages of each view file
+
+#### Testing packages:
+
+- capybara
+- rspec-rails
+- rails-controller-testing
 
 
 ## Authors
