@@ -1,1 +1,51 @@
-<p>here is a single of user</p>
+<h2><%=@user_to_find.name %>'s posts</h2>
+<li>
+  <div class="profile">
+      <img class="img-profile" src=<%= @user_to_find.photo  %> alt='ooops'/>
+  </div>
+
+  <div class="single-user bordered">
+      <p class="user-name">
+      user Name: <%=@user_to_find.name %>
+      </p>
+      <div>
+      <p class="counter">
+      Number of posters: <%=@user_to_find.posts.count %>
+      </p>
+      </div>
+  </div>
+</li>
+
+<div class=" bordered">
+  <h3>Bio</h3>
+  <p class="bio">
+  <%=@user_to_find.bio %>
+  </p>
+</div>
+
+
+
+<ul>
+<% @user_found_posts.each do |post|%>
+    <a href=<%="/users/#{post.id}" %>>
+        <li>
+            <div class="single-user bordered">
+            <div>
+              <p>Post#<%=post.id%> </p>
+                <p class="user-name">
+                Title: <%=post.title %>
+                </p>
+                <p class="user-name">
+                Description: <%=post.text %>
+                </p>
+            </div>
+                <div>
+                <p class="counter">
+                Number of Comments: <%=post.comments.count %>
+                </p>
+                </div>
+            </div>
+        </li>
+    </a>
+<% end %>
+</ul>
