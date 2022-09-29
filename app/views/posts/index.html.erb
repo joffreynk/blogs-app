@@ -1,16 +1,16 @@
-<h2><%= @user_found.name %>'s posts</h2>
+<h2><%= @single_user_found.name %>'s posts</h2>
 <li>
   <div class="profile">
-      <img class="img-profile" src=<%= @user_found.photo  %> alt='ooops'/>
+      <img class="img-profile" src=<%= @single_user_found.photo  %> alt='ooops'/>
   </div>
 
   <div class="single-user bordered">
       <p class="user-name">
-      user Name: <%=@user_found.name %>
+      user Name: <%=@single_user_found.name %>
       </p>
       <div>
       <p class="counter">
-      Number of posts: <%=@user_found.posts.count %>
+      Number of posts: <%=@single_user_found.posts.count %>
       </p>
       </div>
   </div>
@@ -19,7 +19,7 @@
 
 <ul>
   <% @user_found_posts.each do |post|%>
-      <a href=<%="/users/#{@user_found.id}/posts/#{post.id}" %>>
+      <a href=<%="/users/#{@single_user_found.id}/posts/#{post.id}" %>>
           <li>
               <div class="single-user bordered">
                 <div>
@@ -43,7 +43,7 @@
         <% @all_comments.each do |comment| %>
           <%  if comment.post_id == post.id %>
             <li>
-              <%=@user_to_find.name %>: <%=comment.text %> 
+              <%=@single_user_found.name %>: <%=comment.text %> 
             </li>
           <% end %>
         <% end %>
