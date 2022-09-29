@@ -14,8 +14,7 @@
  *= require_self
  */
 
-
- * {
+* {
   margin: 0;
   padding: 0;
   color: black;
@@ -25,7 +24,8 @@ body {
   margin: 3% 10%;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center;
 }
 
@@ -33,7 +33,7 @@ a {
   text-decoration: none;
 }
 
- li {
+li {
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -53,9 +53,8 @@ a {
 }
 
 .user-name {
-  margin: 15px ;
+  margin: 15px;
 }
-
 
 .counter {
   float: right;
