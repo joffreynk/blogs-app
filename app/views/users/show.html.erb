@@ -10,7 +10,7 @@
       </p>
       <div>
       <p class="counter">
-      Number of posters: <%=@user_to_find.posts.count %>
+      Number of posts: <%=@user_to_find.posts.count %>
       </p>
       </div>
   </div>
@@ -27,7 +27,7 @@
 
 <ul>
 <% @user_found_posts.each do |post|%>
-    <a href=<%="/users/#{post.id}" %>>
+    <a href=<%="/users/#{@user_to_find.id}/posts" %> >
         <li>
             <div class="single-user bordered">
             <div>
@@ -41,7 +41,7 @@
             </div>
                 <div>
                 <p class="counter">
-                Number of Comments: <%=post.comments.count %>
+                Comments: <%=post.comments.count %> | Likes: <%=post.likes.count %> 
                 </p>
                 </div>
             </div>
@@ -49,3 +49,6 @@
     </a>
 <% end %>
 </ul>
+<div class="btn">
+<button class="see-all center">See all posts </button>
+</div>

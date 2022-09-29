@@ -60,5 +60,15 @@ a {
 .counter {
   float: right;
   bottom: 0%;
-  right: -20px;
+  right: 20px;
+}
+
+.btn {
+  font-size: 14px;
+  text-align: center;
+}
+
+.see-all {
+  padding: 10px;
+  font-size: 17px;
 }
