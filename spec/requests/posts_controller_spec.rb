@@ -23,10 +23,10 @@ end
 RSpec.describe 'posts and post page contents', type: :feature do
   it 'have here is a list of posts text index.html.erb' do
     visit '/users/:id/posts'
-    expect(page).to have_text('here is a list of posts')
+    expect(page).to have_text('pagination')
   end
   it 'have here is a single of post text in show.html.erb' do
     visit '/users/:id/posts/:id'
-    expect(page).to have_text('here is a single post')
+    expect(page).to have_text('Number of posts:')
   end
 end

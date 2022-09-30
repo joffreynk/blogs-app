@@ -23,10 +23,10 @@ end
 RSpec.describe 'Users and user page contents', type: :feature do
   it 'have here is a list of users text index.html.erb' do
     visit '/'
-    expect(page).to have_text('here is a list of users')
+    expect(page).to have_text('List of users')
   end
   it 'have here is a single of user text in show.html.erb' do
     visit '/users/:id'
-    expect(page).to have_text('here is a single of user')
+    expect(page).to have_text('posts')
   end
 end
