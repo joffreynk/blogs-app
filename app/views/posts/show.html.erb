@@ -1,1 +1,30 @@
-<p>here is a single post</p>
+<div class="single-user bordered">
+  <div class="single-post">
+      <p>Post#<%=@post.id%> by <%=@user_found.name %></p>
+      <div>
+        <p class="counter">|  
+        Likes: <%=@post.comments.count %>
+        </p>
+        <p class="counter">
+        Comments: <%=@post.comments.count %>
+        |</p>
+    </div>
+  </div>
+
+
+  <div>
+      <p class="user-name">
+        <%=@post.text %>
+      </p>
+  </div>
+  
+</div>
+
+
+<ul class="bordered">
+  <% @all_comments.each do |comment| %>
+      <li>
+        <%=@user_found.name %>: <%=comment.text %> 
+      </li>
+  <% end %>
+</ul>

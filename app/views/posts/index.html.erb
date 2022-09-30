@@ -1,1 +1,56 @@
-<p>here is a list of posts</p>
+<h2><%= @single_user_found.name %>'s posts</h2>
+<li>
+  <div class="profile">
+      <img class="img-profile" src=<%= @single_user_found.photo  %> alt='ooops'/>
+  </div>
+
+  <div class="single-user bordered">
+      <p class="user-name">
+      user Name: <%=@single_user_found.name %>
+      </p>
+      <div>
+      <p class="counter">
+      Number of posts: <%=@single_user_found.posts.count %>
+      </p>
+      </div>
+  </div>
+</li>
+
+
+<ul>
+  <% @user_found_posts.each do |post|%>
+      <a href=<%="/users/#{@single_user_found.id}/posts/#{post.id}" %>>
+          <li>
+              <div class="single-user bordered">
+                <div>
+                  <p>Post#<%=post.id%> </p>
+                    <p class="user-name">
+                    Title: <%=post.title %>
+                    </p>
+                    <p class="user-name">
+                    Description: <%=post.text %>
+                    </p>
+                </div>
+                <div>
+                  <p class="counter">
+                  Number of Comments: <%=post.comments.count %>
+                  </p>
+                </div>
+              </div>
+          </li>
+      </a>
+    <ul class="bordered">
+        <% @all_comments.each do |comment| %>
+          <%  if comment.post_id == post.id %>
+            <li>
+              <%=@single_user_found.name %>: <%=comment.text %> 
+            </li>
+          <% end %>
+        <% end %>
+    </ul>
+  <% end %>
+</ul>
+
+<div class="btn">
+<button class="see-all center">pagination </button>
+</div>
