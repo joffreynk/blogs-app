@@ -21,10 +21,11 @@
 </div>
 
 
-<ul class="bordered">
+<ul class="bordered list-comment">
   <% @all_comments.each do |comment| %>
       <li>
         <%=@user_found.name %>: <%=comment.text %> 
       </li>
+      <hr/>
   <% end %>
 </ul>

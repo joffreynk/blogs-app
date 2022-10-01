@@ -19,9 +19,9 @@
 
 <ul>
   <% @user_found_posts.each do |post|%>
+    <li class="bordered">
       <a href=<%="/users/#{@single_user_found.id}/posts/#{post.id}" %>>
-          <li>
-              <div class="single-user bordered">
+              <div class="single-user">
                 <div>
                   <p>Post#<%=post.id%> </p>
                     <p class="user-name">
@@ -37,14 +37,30 @@
                   </p>
                 </div>
               </div>
-          </li>
       </a>
-    <ul class="bordered">
+      <div class="comment-like">
+      <div class="like">
+        <%= form_with url: "/like", method: :post do |form| %>
+          <%= form.hidden_field :post_id, value:post.id %>
+          <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
+          <%= form.submit "Like post" %>
+        <% end %>
+      </div>
+      <div class="comment">
+          <a href=<%="/loadcomment/#{post.id}"%>>
+            <button>loadcomment </button>
+          </a>
+        </div>
+        </div>
+          </li>
+
+    <ul class="bordered list-comment">
         <% @all_comments.each do |comment| %>
           <%  if comment.post_id == post.id %>
-            <li>
+            <li class="single-comment">
               <%=@single_user_found.name %>: <%=comment.text %> 
             </li>
+            <hr/>
           <% end %>
         <% end %>
     </ul>
