@@ -1,0 +1,6 @@
+<%= form_with url: "/new", method: :post do |form| %>
+ post title:<br/><%= form.text_field :title %> <br/><br/>
+ post description:<br/> <%= form.text_area :message, size: "70x5"  %><br/><br/>
+  <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
+  <%= form.submit "add post" %>
+<% end %>

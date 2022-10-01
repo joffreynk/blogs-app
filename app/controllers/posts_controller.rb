@@ -14,4 +14,11 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: param_id)
     @all_comments = Comment.where(post_id: param_id)
   end
+
+  def loadpost; end
+
+  def new
+    Post.create(title: params['title'], text: params['message'], author_id: params['author_id'])
+    redirect_to '/'
+  end
 end

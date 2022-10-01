@@ -16,7 +16,7 @@
 
 * {
   margin: 0;
-  padding: 0;
+  padding: 6px;
   color: black;
 }
 
@@ -42,6 +42,7 @@ li {
 
 .bordered {
   border: 2px solid gray;
+  margin-top: 24px;
 }
 
 .single-user {
@@ -70,4 +71,34 @@ li {
 .see-all {
   padding: 10px;
   font-size: 17px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  border: 2px solid #808080;
+  top: 15%;
+  left: 15%;
+}
+
+.comment-like {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-left: 1px solid gray;
+  padding-left: 12px;
+}
+
+.comment-like button,
+.comment-like input {
+  font-size: 18px;
+  padding: 4px;
+}
+
+.home-user {
+  display: flex;
+}
+
+.addpost {
+  margin-top: 15px;
 }

@@ -23,30 +23,49 @@
   </p>
 </div>
 
+<div class ="see-all center addpost">
+<a href="/createpost">
+<button class ="see-all center addpost">Add post</button>
+</a>
+</div>
 
 
 <ul>
 <% @user_found_posts.each do |post|%>
+    <li class="bordered home-user">
     <a href=<%="/users/#{@user_to_find.id}/posts" %> >
-        <li>
-            <div class="single-user bordered">
-            <div>
-              <p>Post#<%=post.id%> </p>
-                <p class="user-name">
-                Title: <%=post.title %>
-                </p>
-                <p class="user-name">
-                Description: <%=post.text %>
-                </p>
-            </div>
-                <div>
-                <p class="counter">
-                Comments: <%=post.comments.count %> | Likes: <%=post.likes.count %> 
-                </p>
-                </div>
-            </div>
-        </li>
+    <div class="single-user">
+    <div>
+        <p>Post#<%=post.id%> </p>
+        <p class="user-name">
+        Title: <%=post.title %>
+        </p>
+        <p class="user-name">
+        Description: <%=post.text %>
+        </p>
+    </div>
+        <div>
+        <p class="counter">
+        Comments: <%=post.comments.count %> | Likes: <%=post.likes.count %> 
+        </p>
+        </div>
+    </div>
     </a>
+  <div class="comment-like">
+    <div class="like">
+      <%= form_with url: "/like", method: :post do |form| %>
+        <%= form.hidden_field :post_id, value:post.id %>
+        <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
+        <%= form.submit "Like post" %>
+      <% end %>
+    </div>
+    <div class="comment">
+        <a href=<%="/loadcomment/#{post.id}"%>>
+          <button>loadcomment </button>
+    </a>
+  </div>
+  </div>
+</li>
 <% end %>
 </ul>
 <div class="btn">
