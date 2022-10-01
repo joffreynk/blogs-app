@@ -15,12 +15,10 @@ class PostsController < ApplicationController
     @all_comments = Comment.where(post_id: param_id)
   end
 
-  def loadpost
-  end
+  def loadpost; end
 
   def new
     Post.create(title: params['title'], text: params['message'], author_id: params['author_id'])
-    redirect_to "/"
+    redirect_to '/'
   end
-
 end
