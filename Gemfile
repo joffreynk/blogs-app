@@ -74,6 +74,7 @@ group :test do
 end
 
 group :development, :test do
+  gem "database_cleaner"
   gem 'capybara'
   gem 'rspec-rails'
   # gem 'rspec-rails', '~> 4.0.0.beta2'
