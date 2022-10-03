@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  user = User.create(name: 'Jack', post_counter: 3)
+  user = User.create(name: 'Jack', posts_count: 3)
   subject do
-    Post.create(title: 'Breaking news', text: 'writing testing in rails', author_id: user.id, comments_counter: 3,
-                likes_counter: 4)
+    Post.create(title: 'Breaking news', text: 'writing testing in rails', author_id: user.id, comments_count: 3,
+                likes_count: 4)
   end
 
   before { subject.save }
@@ -20,7 +20,10 @@ RSpec.describe Post, type: :model do
 
   it 'comment counter should not be nil' do
     post = Post.create(title: 'Breaking news', text: 'writing testing in rails', author_id: user.id)
-    expect(post.comments_counter).to_not be nil
+    Comment.create(text: 'good work', author_id: user.id, post_id: post.id)
+    Comment.create(text: 'Ruby on rails', author_id: user.id, post_id: post.id)
+    Comment.create(text: 'good work', author_id: user.id, post_id: post.id)
+    expect(post.comments_count).to_not be nil
   end
 
   it 'check if five_most_recent_comments some values ' do
@@ -47,11 +50,11 @@ RSpec.describe Post, type: :model do
   end
 
   it 'check if update_post_counter' do
-    User.create(name: 'Jack', post_counter: 3)
+    user = User.create(name: 'Jack', posts_count: 3)
     Post.create(title: 'helllo', text: 'writing testing in rails', author_id: user.id)
     Post.create(title: 'how are you', text: 'writing testing in rails', author_id: user.id)
     Post.create(title: 'Fine and you?', text: 'writing testing in rails', author_id: user.id)
     postf = Post.create(title: 'Nice', text: 'writing testing in rails', author_id: user.id)
-    expect(postf.update_post_counter).to_not be nil
+    expect(user.posts_count).to_not be nil
   end
 end
