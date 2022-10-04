@@ -20,8 +20,10 @@ RSpec.describe 'Users and user page contents', type: :feature do
       end
       expect(page).to have_current_path("/users/#{@user.id}")
     end
+
     it 'test existance of image' do
-      expect(page.find("#img#{@user.id}")['src']).to_not be nil
+      expect(page.find("#img#{@user.id}", visible: :all)['src']).to_not be nil
     end
+
   end
 end
