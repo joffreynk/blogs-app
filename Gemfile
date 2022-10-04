@@ -76,8 +76,8 @@ group :test do
 end
 
 group :development, :test do
-  gem "database_cleaner"
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'rspec-rails'
   # gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rails-controller-testing', '~> 0.0.3'

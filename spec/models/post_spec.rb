@@ -54,7 +54,7 @@ RSpec.describe Post, type: :model do
     Post.create(title: 'helllo', text: 'writing testing in rails', author_id: user.id)
     Post.create(title: 'how are you', text: 'writing testing in rails', author_id: user.id)
     Post.create(title: 'Fine and you?', text: 'writing testing in rails', author_id: user.id)
-    postf = Post.create(title: 'Nice', text: 'writing testing in rails', author_id: user.id)
+    Post.create(title: 'Nice', text: 'writing testing in rails', author_id: user.id)
     expect(user.posts_count).to_not be nil
   end
 end

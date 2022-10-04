@@ -1,6 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require "capybara/rspec"
+require 'capybara/rspec'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
@@ -59,7 +59,7 @@ RSpec.configure do |config|
   #     RSpec.describe UsersController, type: :controller do
   #       # ...
   #     end
-  RSpec.describe "Signing in", js: true do
+  RSpec.describe 'Signing in', js: true do
     # tests that actually execute JavaScript
   end
   #
@@ -78,7 +78,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
-  
+
   config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
   end

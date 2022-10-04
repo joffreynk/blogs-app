@@ -26,5 +26,3 @@ RSpec.describe 'sigle user', type: :request do
     end
   end
 end
-
-
