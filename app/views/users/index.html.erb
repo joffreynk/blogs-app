@@ -4,7 +4,7 @@
     <a href=<%="/users/#{user.id}" %>>
         <li>
             <div class="profile">
-                <img class="img-profile" src=<%= user.photo  %> alt='ooops'/>
+                <img class="img-profile" id=<%= "image#{user.id}"%> src=<%= user.photo  %> alt='ooops'/>
             </div>
 
             <div class="single-user bordered">

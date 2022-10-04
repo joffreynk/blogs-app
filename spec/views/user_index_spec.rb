@@ -1,4 +1,8 @@
 require 'rails_helper'
-# require_relative '../config/environment'
 
-# capybara test for user index page
+RSpec.describe 'check user image', type: :feature do
+  it 'rsponse img id is a success' do
+    visit '/'
+    expect(page.find('#image12')['src']).to_not be nil
+  end
+end
