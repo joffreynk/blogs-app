@@ -71,7 +71,7 @@ development:
 
 test:
   <<: *default
-  database: blogs
+  database: blogs_test
   username: postgres
   password: jesulamo@1995
 
@@ -102,7 +102,7 @@ test:
 
 production:
   <<: *default
-  database: blogs
+  database: blogs_prod
   username: postgres
   password: jesulamo@1995
 
