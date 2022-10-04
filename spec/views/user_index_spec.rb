@@ -12,5 +12,16 @@ RSpec.describe 'Users and user page contents', type: :feature do
     it 'test user' do
       expect(page).to have_text('Kenobi')
     end
+
+    it 'Check if click on user redirects to user page' do
+      visit "/"
+      within('ul') do
+        find("#user#{@user.id}", visible: :all).click
+      end
+      expect(page).to have_current_path("/users/#{@user.id}")
+    end
+    it 'test existance of image' do
+      expect(page.find("#img#{@user.id}")['src']).to_not be nil
+    end
   end
 end

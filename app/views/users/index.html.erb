@@ -1,7 +1,7 @@
 <h2>List of users </h2>
-<ul>
+<ul id="user-container">
 <% @users.each do |user|%>
-    <a href=<%="/users/#{user.id}" %>>
+    <a href=<%="/users/#{user.id}" %> id=<%="user#{user.id}"%>>
         <li>
             <div class="profile">
                 <img class="img-profile" src=<%= user.photo  %> id=<%="img#{user.id}" %> alt='ooops'/>
