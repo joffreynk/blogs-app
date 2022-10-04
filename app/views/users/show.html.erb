@@ -71,3 +71,18 @@
 <div class="btn">
 <button class="see-all center">See all posts </button>
 </div>
+
+
+<ul>
+  <% @user_posts.each do |user| %>
+
+    <li><%=user.name %></li>
+    <li>
+      <ul>
+        <% user.posts.each do |post| %>
+          <li><%=post.title %></li>
+        <%end%>
+      </ul>
+    </li>
+  <% end %>
+</ul>
