@@ -11,11 +11,11 @@ end
 
 RSpec.describe 'sigle user', type: :request do
   it 'rsponse status is a success' do
-    get '/users/29'
+    get '/users/12'
     expect(response).to have_http_status(:ok)
   end
   it "renders 'index' template" do
-    get '/users/29'
+    get '/users/12'
     expect(response).to render_template('show')
   end
 end
@@ -26,7 +26,7 @@ RSpec.describe 'Users and user page contents', type: :feature do
     expect(page).to have_text('List of users')
   end
   it 'have here is a single of user text in show.html.erb' do
-    visit '/users/29'
-    expect(page).to have_text('user Name: Joffrey')
+    visit '/users/12'
+    expect(page).to have_text('user Name')
   end
 end

@@ -13,14 +13,26 @@
 #
 # Configure Using Gemfile
 # gem "pg"
-#
+
+# Desor
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   username: postgres
+#   password: jesulamo@1995
+
+
+  # Work
 default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
   username: postgres
-  password: jesulamo@1995
+  password: Joffrey579*
 
+
+# Home
 # default: &default
 #   adapter: postgresql
 #   encoding: unicode
@@ -29,11 +41,21 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+# development:
+#   <<: *default
+#   database: blogs
+#   username: postgres
+#   password: jesulamo@1995
+
+# Work
+
 development:
   <<: *default
   database: blogs
   username: postgres
-  password: jesulamo@1995
+  password: Joffrey579*
+
+  # Home
 
 # development:
 #   <<: *default
@@ -71,15 +93,24 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 
-test:
-  <<: *default
-  database: blogs
-  username: postgres
-  password: jesulamo@1995
+# Desor
 
 # test:
 #   <<: *default
 #   database: blogs
+#   username: postgres
+#   password: jesulamo@1995
+
+# test:
+#   <<: *default
+#   database: blogs
+
+# work
+test:
+  <<: *default
+  database: blogs
+  username: postgres
+  password: Joffrey57*
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -100,14 +131,25 @@ test:
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
-#
 
-production:
+
+# Desor
+# production:
+#   <<: *default
+#   database: blogs
+#   username: postgres
+#   password: jesulamo@1995
+
+
+# work
+  production:
   <<: *default
   database: blogs
   username: postgres
-  password: jesulamo@1995
+  password: Joffrey579*
 
+
+# Home
 # production:
 #   <<: *default
 #   database: blos
