@@ -21,8 +21,9 @@ default: &default
   username: postgres
   password: jesulamo@1995
 
-  # adapter: postgresql
-  # encoding: unicode
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -34,9 +35,10 @@ development:
   username: postgres
   password: jesulamo@1995
 
-  # <<: *default
-  # database: blogs
-  # password: jesulamo@1995
+# development:
+#   <<: *default
+#   database: blogs
+#   password: Joffrey579*
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -109,5 +111,5 @@ production:
 # production:
 #   <<: *default
 #   database: blos
-#   username: wilnik
+#   username: joffrey
 #   password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
