@@ -30,7 +30,6 @@
 #   end
 # end
 
-
 RSpec.describe 'Posts', type: :request do
   describe 'GET /posts/:id' do
     before do
@@ -67,7 +66,7 @@ RSpec.describe 'posts and post page contents', type: :feature do
   describe 'GET /posts/:id' do
     before do
       userx = User.create(name: 'Kenobi')
-      postx = Post.create(title: 'The Revenge of the Sith', text: 'Text for testing', author_id: userx.id)
+      Post.create(title: 'The Revenge of the Sith', text: 'Text for testing', author_id: userx.id)
       visit "/users/#{userx.id}/posts/"
     end
     it 'test the title of the post on post index UI' do
