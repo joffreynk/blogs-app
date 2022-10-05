@@ -82,3 +82,5 @@ group :development, :test do
   # gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rails-controller-testing', '~> 0.0.3'
 end
+
+gem 'devise'
