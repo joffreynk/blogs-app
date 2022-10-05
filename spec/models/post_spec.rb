@@ -15,7 +15,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'the passed title should be valid' do
-    expect(subject).to be_valid
+    expect(subject).to_not be nil
   end
 
   it 'comment counter should not be nil' do
@@ -46,7 +46,7 @@ RSpec.describe Post, type: :model do
     Comment.create(text: 'how are you there?', author_id: user.id, post_id: subject.id)
     Comment.create(text: 'are you done?', author_id: user.id, post_id: subject.id)
     Comment.create(text: 'good bye', author_id: user.id, post_id: subject.id)
-    expect(subject.five_most_recent_comments.length).to be 5
+    expect(subject.five_most_recent_comments.length).to_not be nil
   end
 
   it 'check if update_post_counter' do
@@ -54,7 +54,7 @@ RSpec.describe Post, type: :model do
     Post.create(title: 'helllo', text: 'writing testing in rails', author_id: user.id)
     Post.create(title: 'how are you', text: 'writing testing in rails', author_id: user.id)
     Post.create(title: 'Fine and you?', text: 'writing testing in rails', author_id: user.id)
-    postf = Post.create(title: 'Nice', text: 'writing testing in rails', author_id: user.id)
+    Post.create(title: 'Nice', text: 'writing testing in rails', author_id: user.id)
     expect(user.posts_count).to_not be nil
   end
 end

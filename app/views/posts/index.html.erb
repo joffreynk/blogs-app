@@ -18,7 +18,7 @@
 
 
 <ul>
-  <% @user_found_posts.each do |post|%>
+  <% @post_on_comment.each do |post|%>
     <li class="bordered">
       <a href=<%="/users/#{@single_user_found.id}/posts/#{post.id}" %>>
               <div class="single-user">
@@ -33,7 +33,10 @@
                 </div>
                 <div>
                   <p class="counter">
-                  Number of Comments: <%=post.comments.count %>
+                  Comments: <%=post.comments.count %>
+                  </p>
+                  <p class="counter">
+                  Likes: <%=post.likes.count %>
                   </p>
                 </div>
               </div>
@@ -54,16 +57,21 @@
         </div>
           </li>
 
-    <ul class="bordered list-comment">
-        <% @all_comments.each do |comment| %>
-          <%  if comment.post_id == post.id %>
-            <li class="single-comment">
-              <%=@single_user_found.name %>: <%=comment.text %> 
-            </li>
-            <hr/>
-          <% end %>
-        <% end %>
-    </ul>
+      <%  if post.comments.length>0 %>
+        <ul class="bordered list-comment">
+        <h4>Comments:</h4>
+            <% post.comments.each_with_index do |comment, i| %>
+            <%  if i<1 %>
+              <%  if comment.post_id == post.id %>
+                <li class="single-comment">
+                  <%=@single_user_found.name %>: <%=comment.text %> 
+                </li>
+                <hr/>
+                <%end%>
+              <% end %>
+            <% end %>
+        </ul>
+        <%end%>
   <% end %>
 </ul>
 

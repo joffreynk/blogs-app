@@ -13,8 +13,8 @@ RSpec.describe Like, type: :model do
 
   it 'like counter should not be nil' do
     post1 = Post.create(title: 'Breaking news', text: 'writing testing in rails', author_id: user.id)
-    Like.create(post_id:post.id, author_id: user.id)
-    Like.create(post_id:post1.id, author_id: user.id)
+    Like.create(post_id: post.id, author_id: user.id)
+    Like.create(post_id: post1.id, author_id: user.id)
     expect(post.likes_count).to_not be nil
   end
 end
