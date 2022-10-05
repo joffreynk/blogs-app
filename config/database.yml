@@ -22,17 +22,22 @@
 #   password: jesulamo@1995
 
 
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   username: joffrey
+#   password: Joffrey579*
+
+
+
+# Work
 default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: joffrey
+  username: postgres
   password: Joffrey579*
-
-
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -44,10 +49,17 @@ default: &default
 #   username: postgres
 #   password: jesulamo@1995
 
+# development:
+#   <<: *default
+#   database: blogs
+#   username: joffrey
+#   password: Joffrey579*
+
+# Work
 development:
   <<: *default
-  database: blogs
-  username: joffrey
+  database: blogs_prod
+  username: postgres
   password: Joffrey579*
 
   # The specified database role being used to connect to postgres.
@@ -88,16 +100,18 @@ development:
 #   password: jesulamo@1995
 
 
-test:
-  <<: *default
-  database: blogs_test
-  username: joffrey
-  password: Joffrey579*
-
-
 # test:
 #   <<: *default
-#   database: blogs
+#   database: blogs_test
+#   username: joffrey
+#   password: Joffrey579*
+
+# work
+test:
+  <<: *default
+  database: blogs-test
+  username: postgres
+  password: Joffrey57*
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -126,8 +140,16 @@ test:
 #   username: postgres
 #   password: jesulamo@1995
 
-production:
+# production:
+#   <<: *default
+#   database: blos_prod
+#   username: joffrey
+#   password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+
+
+# work
+  production:
   <<: *default
-  database: blos
-  username: joffrey
-  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+  database: blogs
+  username: postgres
+  password: Joffrey579*
