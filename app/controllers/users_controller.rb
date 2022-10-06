@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[index create]
+  before_filter :authenticate_user!, only: %i[index create]
   def index
     @users = User.all
   end
