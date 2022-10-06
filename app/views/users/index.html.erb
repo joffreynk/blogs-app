@@ -1,4 +1,7 @@
 <h2>List of users </h2>
+
+ <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout", html: { onClick: "history.go(0)" } %>  
+
 <ul id="user-container">
 <% @users.each do |user|%>
     <a href=<%="/users/#{user.id}" %> id=<%="user#{user.id}"%>>
