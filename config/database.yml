@@ -14,12 +14,17 @@
 # Configure Using Gemfile
 # gem "pg"
 #
+
+
 # default: &default
 #   adapter: postgresql
 #   encoding: unicode
 #   host: localhost
-#   username: postgres
-#   password: jesulamo@1995
+#   username: joffrey
+#   password: Joffrey579*
+
+
+
 
 # Home
 default: &default
@@ -43,11 +48,13 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+
 # development:
 #   <<: *default
 #   database: blogs
-#   username: postgres
-#   password: jesulamo@1995
+#   username: joffrey
+#   password: Joffrey579*
+
 
 # Home
 development:
@@ -100,12 +107,15 @@ development:
 #   username: postgres
 #   password: jesulamo@1995
 
+
 # Home
 test:
   <<: *default
   database: blogs_test
   username: joffrey
   password: Joffrey579*
+
+
 
 # work
 # test:
@@ -135,18 +145,19 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 
-# production:
-#   <<: *default
-#   database: blogs_prod
-#   username: postgres
-#   password: jesulamo@1995
-
 # Home
 production:
   <<: *default
   database: blos_prod
   username: joffrey
   password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+
+
+# production:
+#   <<: *default
+#   database: blos_prod
+#   username: joffrey
+#   password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
 
 
 # work
