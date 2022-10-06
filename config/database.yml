@@ -36,12 +36,22 @@ default: &default
 #   adapter: postgresql
 #   encoding: unicode
 #   host: localhost
+#   username: joffrey
+#   password: Joffrey579*
+
+
+
+# Work
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
 #   username: postgres
 #   password: Joffrey579*
 
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   # For details on connection pooling, see Rails configuration guide
+#   # https://guides.rubyonrails.org/configuring.html#database-pooling
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
@@ -58,8 +68,8 @@ development:
 # Work
 # development:
 #   <<: *default
-#   database: blogs_prod
-#   username: postgres
+#   database: blogs
+#   username: joffrey
 #   password: Joffrey579*
 
   # The specified database role being used to connect to postgres.
