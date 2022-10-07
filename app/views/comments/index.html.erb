@@ -1,6 +1,6 @@
 <%= form_with url: "/comment", method: :post do |form| %>
  Write your comment <br/> <%= form.text_area :comment, size: "70x5"  %><br/>
   <%= form.hidden_field :post_id, value: @commented_post_id %>
-  <%= form.hidden_field :author_id, value: ApplicationController.current_user.id %>
+  <%= form.hidden_field :author_id, value: current_user.id %>
     <%= form.submit "Comment" %>
 <% end %>
